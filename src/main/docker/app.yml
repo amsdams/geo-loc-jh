@@ -1,0 +1,22 @@
+version: '2'
+services:
+  geo_loc_jh-app:
+    image: geo_loc_jh
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://geo_loc_jh-postgresql:5432/geo_loc_jh
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - SPRING_DATA_JEST_URI=http://geo_loc_jh-elasticsearch:9200
+      - SPRING_ELASTICSEARCH_REST_URIS=http://geo_loc_jh-elasticsearch:9200
+    ports:
+      - 8080:8080
+  geo_loc_jh-postgresql:
+    extends:
+      file: postgresql.yml
+      service: geo_loc_jh-postgresql
+  geo_loc_jh-elasticsearch:
+    extends:
+      file: elasticsearch.yml
+      service: geo_loc_jh-elasticsearch

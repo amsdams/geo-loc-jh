@@ -1,0 +1,11 @@
+version: '2'
+services:
+  geo_loc_jh-postgresql:
+    image: postgres:11.5
+    # volumes:
+    #     - ~/volumes/jhipster/geo_loc_jh/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=geo_loc_jh
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
