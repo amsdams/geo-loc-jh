@@ -8,7 +8,7 @@ import com.amsdams.jh.service.dto.GeocityDTO;
 import com.amsdams.jh.service.mapper.GeocityMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,7 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
  * Service Implementation for managing {@link Geocity}.
  */
 @Service
+@Primary
 @Transactional
 public class GeocityServiceImpl implements GeocityService {
 

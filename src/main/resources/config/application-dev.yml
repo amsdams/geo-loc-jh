@@ -18,7 +18,8 @@ logging:
     ROOT: DEBUG
     io.github.jhipster: DEBUG
     com.amsdams.jh: DEBUG
-
+    org.hibernate: INFO
+  #file: application-debug.log
 management:
   health:
     elasticsearch:
@@ -57,7 +58,8 @@ spring:
       hibernate.connection.provider_disables_autocommit: true
       hibernate.cache.use_second_level_cache: true
       hibernate.cache.use_query_cache: false
-      hibernate.generate_statistics: false
+      hibernate.generate_statistics: true
+      #hibernate.jdbc.batch_size: 1000
   data:
     elasticsearch:
       properties:

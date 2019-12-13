@@ -1,0 +1,71 @@
+have node npm yo and jhipster installed
+brew install postgis
+jhipster something_app
+createdb something_app
+psql {created something_app}
+
+
+create properties with camelcase, example featureClass, so spaces will created in UI, ex 'Feature Class'
+
+extend from generated code, ex My...Resource
+
+geonames column descriptions (P = city, village, PPL = populated locality)
+NL.txt contains 7711 cities
+
+
+and takes time on my PC to load them all
+with save()
+
+no batch:
+takes foreverrr
+
+with saveAll() its a lot quicker
+
+enabled logging for hibernate to see batch sizes and time spent
+added execution time to LogginAspect config class
+
+batch size 1000:
+	loadGeoNamesCitiesInBatches(): Execution time: 36106 milliseconds.
+	
+	860977 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    4281185 nanoseconds spent preparing 156 JDBC statements;
+    25851339 nanoseconds spent executing 155 JDBC statements;
+    192139283 nanoseconds spent executing 8 JDBC batches;
+    2826612 nanoseconds spent performing 15422 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    3355695824 nanoseconds spent executing 1 flushes (flushing a total of 7711 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+batch size 100:
+
+	loadGeoNamesCitiesInBatches(): Execution time: 35447 milliseconds.
+	
+	878294 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    4794382 nanoseconds spent preparing 156 JDBC statements;
+    27461995 nanoseconds spent executing 155 JDBC statements;
+    239422463 nanoseconds spent executing 78 JDBC batches;
+    2870582 nanoseconds spent performing 15422 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    3369990364 nanoseconds spent executing 1 flushes (flushing a total of 7711 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+no batch size set:
+	loadGeoNamesCitiesInBatches(): Execution time: 36918 milliseconds.
+
+	633602 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    19825111 nanoseconds spent preparing 7866 JDBC statements;
+    758800416 nanoseconds spent executing 7866 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    2971417 nanoseconds spent performing 15422 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    3574141322 nanoseconds spent executing 1 flushes (flushing a total of 7711 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+    
+GeocityResource needs GeocityService which is extended by MyGeocityService and this cause loading problems. 
+thats why GeocityService is now @Primary
+
+

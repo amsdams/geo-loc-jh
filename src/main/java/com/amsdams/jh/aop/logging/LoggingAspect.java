@@ -78,16 +78,22 @@ public class LoggingAspect {
      */
     @Around("applicationPackagePointcut() && springBeanPointcut()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+        long start = System.currentTimeMillis();
+
         if (log.isDebugEnabled()) {
             log.debug("Enter: {}.{}() with argument[s] = {}", joinPoint.getSignature().getDeclaringTypeName(),
                 joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
         }
         try {
             Object result = joinPoint.proceed();
+            long elapsedTime = System.currentTimeMillis() - start;
+
             if (log.isDebugEnabled()) {
-                log.debug("Exit: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
-                    joinPoint.getSignature().getName(), result);
+                log.debug("Exit: {}.{}() with result = {}. Execution time: {} milliseconds.", joinPoint.getSignature().getDeclaringTypeName(),
+                    joinPoint.getSignature().getName(), result, elapsedTime);
+                
             }
+            
             return result;
         } catch (IllegalArgumentException e) {
             log.error("Illegal argument: {} in {}.{}()", Arrays.toString(joinPoint.getArgs()),
