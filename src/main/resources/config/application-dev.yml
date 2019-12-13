@@ -43,8 +43,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/geo_loc_jh
-    username: geo_loc_jh
-    password:
+    username: geo_loc_jh_user
+    password: password
     hikari:
       poolName: Hikari
       auto-commit: false

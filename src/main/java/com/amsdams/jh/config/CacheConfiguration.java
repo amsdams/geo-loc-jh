@@ -42,6 +42,7 @@ public class CacheConfiguration {
             createCache(cm, com.amsdams.jh.domain.User.class.getName());
             createCache(cm, com.amsdams.jh.domain.Authority.class.getName());
             createCache(cm, com.amsdams.jh.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.amsdams.jh.domain.Geocity.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

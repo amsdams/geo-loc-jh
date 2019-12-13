@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geocity">
+            <h2><span>Geocity</span> {{geocity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{geocity.name}}</span>
+                </dd>
+                <dt><span>Asciiname</span></dt>
+                <dd>
+                    <span>{{geocity.asciiname}}</span>
+                </dd>
+                <dt><span>Alternatenames</span></dt>
+                <dd>
+                    <span>{{geocity.alternatenames}}</span>
+                </dd>
+                <dt><span>Location</span></dt>
+                <dd>
+                    <span>{{geocity.location}}</span>
+                </dd>
+                <dt><span>Lat</span></dt>
+                <dd>
+                    <span>{{geocity.lat}}</span>
+                </dd>
+                <dt><span>Lon</span></dt>
+                <dd>
+                    <span>{{geocity.lon}}</span>
+                </dd>
+                <dt><span>Featureclass</span></dt>
+                <dd>
+                    <span>{{geocity.featureclass}}</span>
+                </dd>
+                <dt><span>Featuretype</span></dt>
+                <dd>
+                    <span>{{geocity.featuretype}}</span>
+                </dd>
+                <dt><span>Countrycode</span></dt>
+                <dd>
+                    <span>{{geocity.countrycode}}</span>
+                </dd>
+                <dt><span>Cc 2</span></dt>
+                <dd>
+                    <span>{{geocity.cc2}}</span>
+                </dd>
+                <dt><span>Admin 1 Code</span></dt>
+                <dd>
+                    <span>{{geocity.admin1code}}</span>
+                </dd>
+                <dt><span>Admin 2 Code</span></dt>
+                <dd>
+                    <span>{{geocity.admin2code}}</span>
+                </dd>
+                <dt><span>Admin 3 Code</span></dt>
+                <dd>
+                    <span>{{geocity.admin3code}}</span>
+                </dd>
+                <dt><span>Admin 4 Code</span></dt>
+                <dd>
+                    <span>{{geocity.admin4code}}</span>
+                </dd>
+                <dt><span>Population</span></dt>
+                <dd>
+                    <span>{{geocity.population}}</span>
+                </dd>
+                <dt><span>Elevation</span></dt>
+                <dd>
+                    <span>{{geocity.elevation}}</span>
+                </dd>
+                <dt><span>Dem</span></dt>
+                <dd>
+                    <span>{{geocity.dem}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geocity', geocity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

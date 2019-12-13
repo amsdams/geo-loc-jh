@@ -1,0 +1,83 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "asciiname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alternatenames",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lon",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "featureclass",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "featuretype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "countrycode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cc2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admin1code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admin2code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admin3code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admin4code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "population",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "elevation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dem",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20191213095741",
+    "dto": "mapstruct",
+    "searchEngine": "elasticsearch",
+    "service": "serviceImpl",
+    "entityTableName": "geocity",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}
