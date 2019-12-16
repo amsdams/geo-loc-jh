@@ -63,7 +63,7 @@ public class MyGeocityResource extends GeocityResource {
 
 					Position g2d = new G2D(Double.valueOf(columns[5]), Double.valueOf(columns[4]));
 					Point point = new Point(g2d, CrsRegistry.getCoordinateReferenceSystemForEPSG(4326, null));
-					// geocity.setLocation(point);
+					geocity.setLocation(point);
 					// Also copy lat / lon to duplicate columns in the Database
 					geocity.setLat(Double.valueOf(columns[4]));
 					geocity.setLon(Double.valueOf(columns[5]));
@@ -120,7 +120,7 @@ public class MyGeocityResource extends GeocityResource {
 
 					Position g2d = new G2D(Double.valueOf(columns[5]), Double.valueOf(columns[4]));
 					Point point = new Point(g2d, CrsRegistry.getCoordinateReferenceSystemForEPSG(4326, null));
-					// geocity.setLocation(point);
+					geocity.setLocation(point);
 					// Also copy lat / lon to duplicate columns in the Database
 					geocity.setLat(Double.valueOf(columns[4]));
 					geocity.setLon(Double.valueOf(columns[5]));

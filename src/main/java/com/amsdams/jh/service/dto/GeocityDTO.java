@@ -2,6 +2,8 @@ package com.amsdams.jh.service.dto;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.geolatte.geom.Point;
+
 /**
  * A DTO for the {@link com.amsdams.jh.domain.Geocity} entity.
  */
@@ -15,7 +17,7 @@ public class GeocityDTO implements Serializable {
 
     private String alternatenames;
 
-    private Float location;
+    private Point location;
 
     private Double lat;
 
@@ -76,11 +78,11 @@ public class GeocityDTO implements Serializable {
         this.alternatenames = alternatenames;
     }
 
-    public Float getLocation() {
+    public Point getLocation() {
         return location;
     }
 
-    public void setLocation(Float location) {
+    public void setLocation(Point location) {
         this.location = location;
     }
 

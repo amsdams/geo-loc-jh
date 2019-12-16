@@ -1,4 +1,5 @@
 package com.amsdams.jh.domain;
+import org.geolatte.geom.Point;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,7 +35,7 @@ public class Geocity implements Serializable {
     private String alternatenames;
 
     @Column(name = "location")
-    private Float location;
+    private Point location;
 
     @Column(name = "lat")
     private Double lat;
@@ -123,16 +124,16 @@ public class Geocity implements Serializable {
         this.alternatenames = alternatenames;
     }
 
-    public Float getLocation() {
+    public Point getLocation() {
         return location;
     }
 
-    public Geocity location(Float location) {
+    public Geocity location(Point location) {
         this.location = location;
         return this;
     }
 
-    public void setLocation(Float location) {
+    public void setLocation(Point location) {
         this.location = location;
     }
 
