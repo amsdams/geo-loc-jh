@@ -8,4 +8,9 @@ import com.amsdams.jh.service.dto.GeocityDTO;
 public interface MyGeocityService extends GeocityService {
 
 	List<GeocityDTO> saveAll(List<GeocityDTO> geocityDTOs);
+	
+	List<GeocityDTO> findCitiesWithinCircle(float lat, float lon, int radius);
+
+	
+	
 }

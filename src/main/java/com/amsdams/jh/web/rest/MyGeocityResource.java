@@ -18,13 +18,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.amsdams.jh.service.MyGeocityService;
 import com.amsdams.jh.service.dto.GeocityDTO;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/api/my")
+
 public class MyGeocityResource extends GeocityResource {
 
 	public MyGeocityResource(MyGeocityService myGeocityService) {
@@ -38,11 +42,23 @@ public class MyGeocityResource extends GeocityResource {
 	private static final String FRGeonamesCityFile = "/files/NL.txt";
 	private final MyGeocityService myGeocityService;
 
+	@GetMapping("/geocities_search")
+	public List<GeocityDTO> getGeocitiesWithinCircle(@RequestParam(name = "lat") float lat,
+			@RequestParam(name = "lon") float lon, @RequestParam(name = "radius") int radius) {
+		// Gson gson = new
+		// GsonBuilder().excludeFieldsWithoutExposeAnnotation().create(); // new Gson();
+		List<GeocityDTO> cities = myGeocityService.findCitiesWithinCircle(lat, lon, radius);
+		log.info("found {} cities ", cities.size());
+		return cities;
+		// return gson.toJson(cities);
+
+	}
+
 	@GetMapping("/loadGeoNamesCitiesInBatches")
 	public void loadGeoNamesCitiesInBatches() {
 		log.info("Loading GeoName file " + FRGeonamesCityFile);
 		log.info(env.getProperty("spring.jpa.properties.hibernate.jdbc.batch_size "));
-		
+
 		InputStream stream = this.getClass().getResourceAsStream(FRGeonamesCityFile);
 
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(stream))) {
@@ -98,7 +114,7 @@ public class MyGeocityResource extends GeocityResource {
 
 	@Autowired
 	private Environment env;
-	
+
 	@GetMapping("/loadGeoNamesCities")
 	public void loadGeoNamesCities() {
 		log.info("Loading GeoName file " + FRGeonamesCityFile);

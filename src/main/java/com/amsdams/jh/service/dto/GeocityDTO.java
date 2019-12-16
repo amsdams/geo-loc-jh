@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import org.geolatte.geom.Point;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * A DTO for the {@link com.amsdams.jh.domain.Geocity} entity.
  */
@@ -16,7 +18,7 @@ public class GeocityDTO implements Serializable {
     private String asciiname;
 
     private String alternatenames;
-
+    @JsonIgnore
     private Point location;
 
     private Double lat;
