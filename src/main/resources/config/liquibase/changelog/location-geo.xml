@@ -1,0 +1,25 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+	<!-- <changeSet author="location-to-geo" id="location-to-geo"> <modifyDataType 
+		catalogName="cat" columnName="location" newDataType="geometry(Point,4326)" 
+		schemaName="public" tableName="geocity" /> </changeSet> -->
+	<changeSet author="liquibase-docs" id="dropColumn-example">
+		<dropColumn catalogName="cat" columnName="id"
+			schemaName="public" tableName="geocity">
+			<column name="location" />
+		</dropColumn>
+	</changeSet>
+
+	<changeSet author="liquibase-docs" id="addColumn-example">
+		<addColumn catalogName="cat" schemaName="public"
+			tableName="geocity">
+			<column name="location" type="geometry(Point,4326)" />
+		</addColumn>
+	</changeSet>
+
+</databaseChangeLog>
