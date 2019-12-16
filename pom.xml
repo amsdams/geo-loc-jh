@@ -356,11 +356,8 @@
 		<!-- jhipster-needle-maven-add-dependency -->
 
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-spatial -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-spatial</artifactId>
-		</dependency>
-
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-spatial</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -520,6 +517,11 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>io.github.jhipster</groupId>
+					<artifactId>jhipster-framework</artifactId>
+					<version>${jhipster-dependencies.version}</version>
+				</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${maven-compiler-plugin.version}</version>
@@ -643,8 +645,8 @@
 						<driver>org.postgresql.Driver</driver>
 						<url>jdbc:postgresql://localhost:5432/geo_loc_jh</url>
 						<defaultSchemaName></defaultSchemaName>
-						<username>geo_loc_jh</username>
-						<password></password>
+						<username>geo_loc_jh_user</username>
+						<password>password</password>
 						<referenceUrl>hibernate:spring:com.amsdams.jh.domain?dialect=io.github.jhipster.domain.util.FixedPostgreSQL95Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
 						<verbose>true</verbose>
 						<logging>debug</logging>
@@ -691,6 +693,13 @@
 							<artifactId>spring-beans</artifactId>
 							<version>${spring.version}</version>
 						</dependency>
+						
+						<dependency>
+                            <groupId>io.github.jhipster</groupId>
+                            <artifactId>jhipster-framework</artifactId>
+                            <version>${jhipster-dependencies.version}</version>
+                        </dependency>
+                        
 					</dependencies>
 				</plugin>
 				<plugin>
