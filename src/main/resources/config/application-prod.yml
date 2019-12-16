@@ -1,4 +1,3 @@
-# ===================================================================
 # Spring Boot configuration for the "prod" profile.
 #
 # This configuration overrides the application.yml file.
@@ -40,7 +39,7 @@ spring:
       poolName: Hikari
       auto-commit: false
   jpa:
-    database-platform: io.github.jhipster.domain.util.FixedPostgreSQL95Dialect
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
     database: POSTGRESQL
     show-sql: false
     properties:
